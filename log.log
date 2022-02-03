@@ -1,0 +1,32 @@
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/serial/serialposix.py", line 322, in open
+    self.fd = os.open(self.portstr, os.O_RDWR | os.O_NOCTTY | os.O_NONBLOCK)
+PermissionError: [Errno 13] Permission denied: '/dev/ttyUSB0'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/www/html/gcode/try.py", line 22, in <module>
+    s = serial.Serial('/dev/ttyUSB0',250000)
+  File "/usr/local/lib/python3.9/dist-packages/serial/serialutil.py", line 244, in __init__
+    self.open()
+  File "/usr/local/lib/python3.9/dist-packages/serial/serialposix.py", line 325, in open
+    raise SerialException(msg.errno, "could not open port {}: {}".format(self._port, msg))
+serial.serialutil.SerialException: [Errno 13] could not open port /dev/ttyUSB0: [Errno 13] Permission denied: '/dev/ttyUSB0'
+<class 'serial.serialposix.Serial'>
+Opening Serial Port
+Opening gcode file
+Sending gcode
+END of SLEEP
+Sending: G28
+b'ok\n'
+b' : ok'
+<class 'serial.serialposix.Serial'>
+Opening Serial Port
+Opening gcode file
+Sending gcode
+END of SLEEP
+Sending: G28
+b'ok\n'
+b' : ok'
