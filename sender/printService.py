@@ -137,6 +137,6 @@ while 1:
                         print(activePorts)
             else:
                 pass
-    
+    time.sleep(0.05)
 
 
