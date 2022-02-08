@@ -71,7 +71,8 @@ def main():
     for n, (port, desc, hwid) in enumerate(iterator, 1):
         if args.n is None or args.n == n:
 #            sys.stdout.write("{:20}\n".format(port))
-            ports_detected.append(port)
+            if(port != "/dev/ttyAMA0"):
+                ports_detected.append(port)
             if args.verbose:
                 sys.stdout.write("    desc: {}\n".format(desc))
                 sys.stdout.write("    hwid: {}\n".format(hwid))
@@ -106,6 +107,8 @@ while 1:
     for i in nowPorts:      #add port
             if(i not in activePorts):
                 nameFile = "sockets/" + i.split('/')[2]
+                if(i == "/dev/ttyAMA0"):
+                          continue
                 if(os.path.exists(nameFile)):
                     os.remove(nameFile)
                 print("New dev: " + i)
